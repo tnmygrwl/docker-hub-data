@@ -11,10 +11,10 @@ def get_basic_data():
     # Get basic info:
     r = requests.get(DOCKER_SEARCH_URL, headers=HEADERS, params={'page_size': 1000})
     skeleton_data = r.json()
-    data = {}
-    data['count'] = skeleton_data['count']
-    data['summaries'] = skeleton_data['summaries']
-
+    data = {
+        'count': skeleton_data['count'],
+        'summaries': skeleton_data['summaries'],
+    }
     for i in range(100):
         print(i)
         next_url = skeleton_data['next']

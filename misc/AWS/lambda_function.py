@@ -31,9 +31,6 @@ PARAMS = {
 
 
 def download_data():
-    resp = {}
     r = requests.get(SEARCH_URL, headers=HEADERS, params=PARAMS)
     resp_data = r.json()
-    resp['count'] = resp_data['count']
-    resp['summaries'] = resp_data['summaries']
-    return resp
+    return {'count': resp_data['count'], 'summaries': resp_data['summaries']}
